@@ -1,5 +1,6 @@
 from django.db import models
 from product.models import Product,Category
+
 class Platform(models.Model):
     name = models.CharField(max_length=20)
     
@@ -40,7 +41,7 @@ class User(models.Model):
 
 class PhoneVerification(models.Model):
     user  = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    phone = models.CharField(unique=True, max_length= 11)
+    phone = models.CharField(unique=True, max_length=11)
     code  = models.CharField(max_length=6)
     
     class Meta:
@@ -51,7 +52,7 @@ class ApplyPath(models.Model):
     reason          = models.CharField(max_length=20)
     specific_reason = models.CharField(max_length=150, null=True)
     recommender     = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    
+
     class Meta:
         db_table = 'apply_paths'
 

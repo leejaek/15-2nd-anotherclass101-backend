@@ -45,6 +45,7 @@ class Product(models.Model):
     refund_policy       = models.CharField(max_length=200, null=True)
     liker               = models.ManyToManyField('user.User', through='ProductLike', related_name='liked_products')
 
+
     class Meta:
         db_table = 'products'
     def __str__(self):
